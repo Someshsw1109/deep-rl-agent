@@ -57,8 +57,9 @@ def plot_reward_curve(
 
     ax.plot(episodes, raw, alpha=0.25, color=color, linewidth=0.8, label="Raw reward")
     ma = _moving_avg(rewards, window)
+    offset = len(episodes) - len(ma)
     ax.plot(
-        episodes[window - 1:], ma,
+        episodes[offset:], ma,
         color=color, linewidth=2,
         label=f"{agent_label} (MA-{window})",
     )
@@ -92,8 +93,9 @@ def plot_comparison(
         raw = np.array(history["rewards"])
         ax.plot(history["episodes"], raw, alpha=0.15, color=color, linewidth=0.7)
         ma = _moving_avg(history["rewards"], window)
+        offset = len(history["episodes"]) - len(ma)
         ax.plot(
-            history["episodes"][window - 1:], ma,
+            history["episodes"][offset:], ma,
             color=color, linewidth=2.2, label=f"{label} (MA-{window})",
         )
 
@@ -124,8 +126,9 @@ def plot_loss_curves(
         episodes = list(range(1, len(losses) + 1))
         ax.plot(episodes, losses, alpha=0.2, color=color, linewidth=0.7)
         ma = _moving_avg(losses, window)
+        offset = len(episodes) - len(ma)
         ax.plot(
-            episodes[window - 1:], ma,
+            episodes[offset:], ma,
             color=color, linewidth=2, label=f"{label} loss (MA-{window})",
         )
 

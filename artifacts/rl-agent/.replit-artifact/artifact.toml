@@ -12,20 +12,10 @@ version = "1.0.0"
 [[services]]
 name = "web"
 paths = [ "/" ]
-localPort = 25042
+localPort = 5000
 
 [services.development]
-run = "pnpm --filter @workspace/rl-agent run dev"
+run = "streamlit run rl-project/app.py"
 
 [services.production]
-build = [ "pnpm", "--filter", "@workspace/rl-agent", "run", "build" ]
-publicDir = "artifacts/rl-agent/dist/public"
-serve = "static"
-
-[[services.production.rewrites]]
-from = "/*"
-to = "/index.html"
-
-[services.env]
-PORT = "25042"
-BASE_PATH = "/"
+run = "streamlit run rl-project/app.py"

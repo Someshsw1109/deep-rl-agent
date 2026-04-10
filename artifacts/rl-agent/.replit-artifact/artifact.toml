@@ -15,7 +15,7 @@ paths = [ "/" ]
 localPort = 5000
 
 [services.development]
-run = "streamlit run rl-project/app.py"
+run = "streamlit run /home/runner/workspace/rl-project/app.py"
 
 [services.production]
-run = "streamlit run rl-project/app.py"
+run = "streamlit run /home/runner/workspace/rl-project/app.py"

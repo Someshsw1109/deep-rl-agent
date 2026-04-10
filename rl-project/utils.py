@@ -5,6 +5,8 @@ All functions return Matplotlib Figure objects so they can be embedded
 in Streamlit with st.pyplot() or saved to disk with fig.savefig().
 """
 
+import matplotlib
+matplotlib.use("Agg")  # headless backend — required for cloud/server environments
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker

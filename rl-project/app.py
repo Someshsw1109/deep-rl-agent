@@ -10,7 +10,11 @@ Tabs:
 
 import sys
 import os
-sys.path.insert(0, os.path.dirname(__file__))
+
+# Ensure rl-project/ is always on the path regardless of working directory
+_here = os.path.dirname(os.path.abspath(__file__))
+if _here not in sys.path:
+    sys.path.insert(0, _here)
 
 import streamlit as st
 import numpy as np
